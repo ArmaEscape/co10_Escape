@@ -71,7 +71,7 @@ def build_mission(mission: Mission, config: Config, pbo_packer: PboPacker):
 
     file_name = mission.name + '.' + mission_island.class_name + '.pbo'
 
-    pbo_packer.pack(mission_dir, file_name)
+    pbo_packer.pack(mission_dir)
 
     # Copy build artifact.
     shutil.copyfile(mission_dir + '.pbo', path.join(config.data['PackedDir'], 'Missions', file_name))

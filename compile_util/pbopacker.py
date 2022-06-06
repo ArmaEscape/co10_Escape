@@ -13,29 +13,28 @@ class PboPacker:
 
     def _exec_path(self) -> str:
         if sys.platform == 'win32':
-            return path.join('./Tools', 'JAPM.exe')
+            return path.join('./Tools', 'cpbo.exe')
         else:
-            return path.join('./Tools', 'JAPM')
+            return path.join('./Tools', 'cpbo')
 
     def _download_uri(self) -> str:
         if sys.platform == 'win32':
-            return self.config.data['JAPM']['windows']
+            return self.config.data['CpboPath']['windows']
         else:
-            return self.config.data['JAPM']['linux']
+            return self.config.data['CpboPath']['linux']
 
     def download(self):
         exec_path = self._exec_path()
         if not path.isfile(exec_path):
-            logging.info("Downloading JAPM...")
+            logging.info("Downloading CPBO...")
             download_uri = self._download_uri()
             urlretrieve(download_uri, exec_path)
-            logging.info("JAPM downloaded.")
+            logging.info("CPBO downloaded.")
         else:
-            logging.info("Found JAPM on path {}.".format(exec_path))
+            logging.info("Found CPBO on path {}.".format(exec_path))
 
-    def pack(self, mission_dir: str, output_name: str):
-        logging.info('Packing {} into {}.'.format(mission_dir, output_name))
-        output_path = path.join(mission_dir, '..', output_name)
+    def pack(self, mission_dir: str):
+        logging.info('Packing {}.'.format(mission_dir))
 
         exec_path = self._exec_path()
-        subprocess.call([exec_path, '-q', mission_dir, output_path])
+        subprocess.call([exec_path, "-y", "-p", mission_dir])
