@@ -4,6 +4,10 @@
 	"PackedDir" : "./Packed/",
 	"Missionname" : "co10_Escape",
 	"cpbo" : "S:\\ArmA3Work\\Tools\\cpbo\\cpbo.exe",
+	"JAPM": {
+		"linux": "https://github.com/RaJiska/JAPM/releases/download/v0.8/JAPM_Linux_x86_64",
+		"windows": "https://github.com/RaJiska/JAPM/releases/download/v0.8/JAPM_Windows_x86_64.exe"
+	},
 	"Subconfigs": [
 		"./Configs/subconfig_example.json",
 		"./Configs/RHS.json",
