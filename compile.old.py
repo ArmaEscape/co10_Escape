@@ -81,7 +81,7 @@ for mission in missions:
                     f.write(s)
                     f.flush()
                     f.close()
-    subprocess.call(["cpbo.exe", "-y", "-p", missiondir])
+    subprocess.call(["./cpbo.exe", "-y", "-p", missiondir])
     shutil.copyfile(missiondir + ".pbo", data['PackedDir'] + '/Missions/' + mission['name'] + '.' + missionIsland[
         'class'] + '.pbo')  # Copy build artifact
 t = []

@@ -24,7 +24,7 @@ os.makedirs(path.join(config.data['BuildDir'], 'Addons'), exist_ok=True)
 logging.info('Creating packed directory in {}.'.format(path.join(config.data['PackedDir'], 'Missions')))
 os.makedirs(path.join(config.data['PackedDir'], 'Missions'), exist_ok=True)
 
-logging.info('Creating packed directory in ./Tools if missing.')
+logging.info('Creating tools directory in ./Tools if missing.')
 os.makedirs('./Tools', exist_ok=True)
 
 pbo_packer = PboPacker(config)

@@ -52,8 +52,8 @@ def build_mission(mission: Mission, config: Config, pbo_packer: PboPacker):
     shutil.copytree(mission_mod.path, path.join(mission_dir, 'Units'))
 
     # Add quotation marks around requirements and concatenate to string.
-    require_array = map(lambda x: '"{}"'.format(x), mission_mod.require)
-    required = ','.join(require_array)
+    require_array = map(lambda x: '"{}",'.format(x), mission_mod.require)
+    required = ''.join(require_array)
 
     # Copy mission file.
     shutil.copy(path.join('./Missions', mission.sqm, 'mission.sqm'), path.join(mission_dir, 'mission.sqm'))
